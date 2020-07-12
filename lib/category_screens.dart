@@ -6,6 +6,8 @@ class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView(
+      //The const part makes sure that `EdgeInsets.all(25.0)` will only create 1 time
+      padding: const EdgeInsets.all(25.0),
       //Inserting items to the gridView
       children: DUMMY_CATEGORIES.map((categoryData) => CategoryItem(
           title: categoryData.title,
