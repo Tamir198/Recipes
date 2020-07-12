@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipes/category_screens.dart';
 
 void main() => runApp(MyApp());
 
@@ -6,34 +7,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Recipes',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Scaffold(
+          appBar: AppBar(title: Text('Recipes'),),
+          body: CategoriesScreen()),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  MyRecipesApp createState() => MyRecipesApp();
-}
-
-class MyRecipesApp extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Recipes"),
-      ),
-      body: Center(
-        child: Text("empty project"),
-      ),
-    );
-  }
-}
