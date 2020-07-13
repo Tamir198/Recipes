@@ -52,6 +52,6 @@ const DUMMY_CATEGORIES = const [
     id: 'c10',
     title: 'Summer',
     color: Colors.teal,
-  ),
+  )
 
 ];

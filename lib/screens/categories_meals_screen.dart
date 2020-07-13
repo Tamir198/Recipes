@@ -1,6 +1,6 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 class CategoryMealScreen extends StatelessWidget {
   final String categoryId;
   final String categoryTitle;
@@ -9,8 +9,6 @@ class CategoryMealScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(categoryId + '  Whyy');
-    print(categoryTitle + '  Whyy');
     return Scaffold(
       appBar: AppBar(title: Text(categoryTitle)),
       body: Center(

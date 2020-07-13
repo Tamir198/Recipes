@@ -14,7 +14,7 @@ class CategoryItem extends StatelessWidget {
   void selectCategory(BuildContext context) {
     Navigator.of(context).push(
         MaterialPageRoute(builder: (BuildContext context) {
-      return CategoryMealScreen(id,title);
+           return CategoryMealScreen(id, title);
     }));
   }
 
@@ -30,10 +30,7 @@ class CategoryItem extends StatelessWidget {
 
       child: Container(
         padding: EdgeInsets.all(16),
-        child: Text(title, style: Theme
-            .of(context)
-            .textTheme
-            .headline6,),
+        child: Text(title, style: Theme.of(context).textTheme.headline6),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [color.withOpacity(0.7), color],
