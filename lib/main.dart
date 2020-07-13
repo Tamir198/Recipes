@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipes/category_screens.dart';
+import 'file:///C:/Users/The%20Vegan/Desktop/Recipes/recipes/Recipes/lib/screens/category_screens.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.pink,
         accentColor: Colors.amber,
         canvasColor: Color.fromRGBO(255, 254, 229, 1),
-        fontFamily: 'Raleway',
+        fontFamily: 'RobotoCondensed-Bold',
         textTheme: ThemeData.light().textTheme.copyWith(
             body1: TextStyle(
               color: Color.fromRGBO(20, 51, 51, 1),
