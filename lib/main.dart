@@ -33,7 +33,9 @@ class MyApp extends StatelessWidget {
           body: CategoriesScreen()),
       routes: {
         //This is another way to navigate between pages in flutter
-        '/category-meals' : (context) => CategoryMealScreen()
+        //I can write
+        // /screen-rout : (context) => CategoryMealScreen() but easy to make grammar mistakes
+        CategoryMealScreen.routName : (context) => CategoryMealScreen()
       },
     );
   }

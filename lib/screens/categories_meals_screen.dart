@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CategoryMealScreen extends StatelessWidget {
+  static final String routName = '/CategoryMealScreen';
   @override
   Widget build(BuildContext context) {
 
@@ -12,9 +13,10 @@ class CategoryMealScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: Text(categoryTitle)),
-      body: Center(
-        child: Text(categoryId),
-      ),
+      body: ListView.builder(
+        itemBuilder: (context,index) {
+        return;
+      },itemCount: 5,)
     );
   }
 }

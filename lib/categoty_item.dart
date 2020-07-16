@@ -12,8 +12,9 @@ class CategoryItem extends StatelessWidget {
 
 
   void selectCategory(BuildContext context) {
+
     //Navigate to another screen with arguments (this is like send intent with extra params from android + then ame of the activity)
-    Navigator.of(context).pushNamed('/category-meals',
+    Navigator.of(context).pushNamed(CategoryMealScreen.routName,
         arguments: {'id': id, 'title' : title}
     );
   }
