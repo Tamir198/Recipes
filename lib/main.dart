@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'file:///C:/Users/The%20Vegan/Desktop/Recipes/recipes/Recipes/lib/screens/category_screens.dart';
+import 'screens/categories_meals_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,6 +31,10 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
           appBar: AppBar(title: Text('Recipes'),),
           body: CategoriesScreen()),
+      routes: {
+        //This is another way to navigate between pages in flutter
+        '/category-meals' : (context) => CategoryMealScreen()
+      },
     );
   }
 }
