@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import '../dummy_data.dart';
-import '../categoty_item.dart';
+import '../widgets/categoty_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
   @override
