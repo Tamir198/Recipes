@@ -4,6 +4,7 @@ import 'package:recipes/dummy_data.dart';
 
 class MealDetailScreen extends StatelessWidget {
   static const routName = '/MealDetailScreen';
+  var mediaQuery;
 
   Widget buildSectionTitle(String text, BuildContext context) {
     return Container(
@@ -20,13 +21,14 @@ class MealDetailScreen extends StatelessWidget {
         ),
         margin: EdgeInsets.all(10),
         padding: EdgeInsets.all(10),
-        height: 200,
-        width: 300,
+        height: mediaQuery.size.height * 0.3,
+        width: mediaQuery.size.width * 0.85,
         child: child);
   }
 
   @override
   Widget build(BuildContext context) {
+    mediaQuery = MediaQuery.of(context);
     final mealId = ModalRoute.of(context).settings.arguments as String;
     final selectedMeals = DUMMY_MEALS.firstWhere((meal) => meal.id == mealId);
     return Scaffold(
@@ -36,7 +38,7 @@ class MealDetailScreen extends StatelessWidget {
             children: <Widget>[
               Container(
                 width: double.infinity,
-                height: 300,
+                height: mediaQuery.size.height * 0.5,
                 child: Image.network(selectedMeals.imageUrl, fit: BoxFit.cover),
               ),
               buildSectionTitle('Ingredients', context),
