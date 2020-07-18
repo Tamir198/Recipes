@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipes/screens/meal_details.dart';
+import 'package:recipes/screens/tabs_screen.dart';
 import 'file:///C:/Users/The%20Vegan/Desktop/Recipes/recipes/Recipes/lib/screens/category_screens.dart';
 import 'screens/categories_meals_screen.dart';
 import 'screens/meal_details.dart';
@@ -30,13 +31,15 @@ class MyApp extends StatelessWidget {
             )),
       ),
 
-      home: Scaffold(
+     /* home: Scaffold(
           appBar: AppBar(title: Text('Recipes'),),
-          body: CategoriesScreen()),
+          body: CategoriesScreen()),*/
       routes: {
         //This is another way to navigate between pages in flutter
         //I can write
         // /screen-rout : (context) => CategoryMealScreen() but easy to make grammar mistakes
+        //Default page of the app
+        '/': (context) => TabsScreen(),
         CategoryMealScreen.routName : (context) => CategoryMealScreen(),
         MealDetailScreen.routName : (context) => MealDetailScreen()
       },
