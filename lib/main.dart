@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:recipes/screens/meal_details.dart';
 import 'file:///C:/Users/The%20Vegan/Desktop/Recipes/recipes/Recipes/lib/screens/category_screens.dart';
 import 'screens/categories_meals_screen.dart';
+import 'screens/meal_details.dart';
 
 void main() => runApp(MyApp());
 
@@ -35,7 +37,13 @@ class MyApp extends StatelessWidget {
         //This is another way to navigate between pages in flutter
         //I can write
         // /screen-rout : (context) => CategoryMealScreen() but easy to make grammar mistakes
-        CategoryMealScreen.routName : (context) => CategoryMealScreen()
+        CategoryMealScreen.routName : (context) => CategoryMealScreen(),
+        MealDetailScreen.routName : (context) => MealDetailScreen()
+      },
+      //If flutter will fail to show some screen you can show something like 'page nto found'
+      onUnknownRoute: (setting){
+        return MaterialPageRoute(builder: (context) => CategoryMealScreen());
+
       },
     );
   }
