@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipes/screens/filter_meals_screen.dart';
 import 'package:recipes/screens/meal_details.dart';
 import 'package:recipes/screens/tabs_screen.dart';
 import 'file:///C:/Users/The%20Vegan/Desktop/Recipes/recipes/Recipes/lib/screens/category_screens.dart';
@@ -41,7 +42,8 @@ class MyApp extends StatelessWidget {
         //Default page of the app
         '/': (context) => TabsScreen(),
         CategoryMealScreen.routName : (context) => CategoryMealScreen(),
-        MealDetailScreen.routName : (context) => MealDetailScreen()
+        MealDetailScreen.routName : (context) => MealDetailScreen(),
+        FilterMealsScreens.routName : (context) => FilterMealsScreens()
       },
       //If flutter will fail to show some screen you can show something like 'page nto found'
       onUnknownRoute: (setting){

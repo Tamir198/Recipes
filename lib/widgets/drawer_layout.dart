@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:recipes/screens/filter_meals_screen.dart';
 
 
 class DrawerLayout extends StatelessWidget {
@@ -6,7 +8,7 @@ class DrawerLayout extends StatelessWidget {
   //I am using a function and not a widget because this widget will not manage any state
   //If it will need to manage some state - use widget so the build method of this widget will get called
   //and not the build method of the widget tree
-  Widget createListTile (String title, IconData icon){
+  Widget createListTile (String title, IconData icon, Function itemPressed){
     return ListTile(
       leading: Icon(icon, size: 26),
       title: Text(title, style: TextStyle(
@@ -15,9 +17,13 @@ class DrawerLayout extends StatelessWidget {
           fontWeight: FontWeight.bold
       ),
       ),
-      onTap: (){},
+      onTap: itemPressed,
     );
+  }
 
+  void moveScreen(String routName, BuildContext context){
+    //Replace the current screen with new one and not just add to stack
+    Navigator.of(context).pushReplacementNamed(routName);
   }
 
   @override
@@ -39,8 +45,8 @@ class DrawerLayout extends StatelessWidget {
           ),
         ),
         SizedBox(height: 20),
-        createListTile('Meals',Icons.restaurant),
-        createListTile('Settings',Icons.settings),
+        createListTile('Meals', Icons.restaurant, () => moveScreen('/',context)),
+        createListTile('Settings',Icons.settings,() => moveScreen(FilterMealsScreens.routName, context))
       ],
     ),);
   }

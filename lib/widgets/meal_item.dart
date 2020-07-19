@@ -10,6 +10,8 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
+  //Function to remove Item from the meal list
+  final Function removeItem;
 
   const MealItem(
       {@required this.id,
@@ -17,10 +19,22 @@ class MealItem extends StatelessWidget {
       @required this.imgUrl,
       @required this.duration,
       @required this.complexity,
-      @required this.affordability});
+      @required this.affordability,
+      @required this.removeItem});
 
   void selectMeal(BuildContext context) {
-    Navigator.of(context).pushNamed(MealDetailScreen.routName, arguments: id);
+    
+    Navigator.of(context).pushNamed(
+        MealDetailScreen.routName,
+        arguments: id
+        //Result is the data that was received from navigator.pop() method
+    ).then((result){
+      //If I have an id of item I want to remove
+      //call the function and send forward the id
+       if(result != null){
+         removeItem(result);
+       }
+    });
   }
 
   String get complexityText {
