@@ -7,6 +7,9 @@ import 'package:recipes/widgets/meal_item.dart';
 class CategoryMealScreen extends StatefulWidget {
   static final String routName = '/CategoryMealScreen';
 
+  List<Meal> availableMeals;
+  CategoryMealScreen(this.availableMeals);
+
   @override
   _CategoryMealScreenState createState() => _CategoryMealScreenState();
 }
@@ -34,7 +37,8 @@ class _CategoryMealScreenState extends State<CategoryMealScreen> {
       final String categoryId = routArguments['id'];
       categoryTitle = routArguments['title'];
       //This is the filtered list category according to the DUMMY_MEALS data
-      displayedMeals = DUMMY_MEALS.where((meal) {
+      //widget.something = use something that is inside the widget and not the state object
+      displayedMeals = widget.availableMeals.where((meal) {
         return meal.categories.contains(categoryId);
       }).toList();
       hasDataInitialized = true;
@@ -64,11 +68,9 @@ class _CategoryMealScreenState extends State<CategoryMealScreen> {
                 imgUrl: displayedMeals[index].imageUrl,
                 duration: displayedMeals[index].duration,
                 affordability: displayedMeals[index].affordability,
-                complexity: displayedMeals[index].complexity,
-                removeItem: removeMeal,
-
+                complexity: displayedMeals[index].complexity
             );
-          }, itemCount: displayedMeals.length,)
+          }, itemCount: displayedMeals.length)
     );
   }
 }
