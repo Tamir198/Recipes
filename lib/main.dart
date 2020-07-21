@@ -25,6 +25,7 @@ class _MyAppState extends State<MyApp> {
   //Creating this list so I can manage what to show based on the user meals preferences in filter screen
   //This will be used un categoryMeals instead of the DUMMY_MEALS
   List <Meal> availableMeals = DUMMY_MEALS;
+  List <Meal> favoriteMeals = [];
 
   //This will be called inside filterMeals screen and update the meals
   void setFilters( Map<String,bool> filtersData ){
@@ -48,6 +49,27 @@ class _MyAppState extends State<MyApp> {
 
       }).toList();
     });
+  }
+
+  void toggleFavorites(String mealId){
+    //Return -1 if condition is not met
+   final favoriteIndex = favoriteMeals.indexWhere((meal) => meal.id == mealId);
+    //favoriteIndex contains a meal that I want to remove from favorite list
+    if(favoriteIndex >= 0){
+      setState(() {
+        favoriteMeals.removeAt(favoriteIndex);
+      });
+
+    }else{
+      //Add the first meal with the same id as favoriteIndex and add it ot the favorites list
+      setState(() {
+        favoriteMeals.add(DUMMY_MEALS.firstWhere((meal) => meal.id == mealId));
+      });
+    }
+  }
+
+  bool isFavorite(String id){
+    return favoriteMeals.any((meal) => meal.id == id);
   }
 
 
@@ -83,9 +105,9 @@ class _MyAppState extends State<MyApp> {
         //I can write
         // /screen-rout : (context) => CategoryMealScreen() but easy to make grammar mistakes
         //Default page of the app
-        '/': (context) => TabsScreen(),
+        '/': (context) => TabsScreen(favoriteMeals),
         CategoryMealScreen.routName : (context) => CategoryMealScreen(availableMeals),
-        MealDetailScreen.routName : (context) => MealDetailScreen(),
+        MealDetailScreen.routName : (context) => MealDetailScreen(toggleFavorites,isFavorite),
         FilterMealsScreens.routName : (context) => FilterMealsScreens(filters,setFilters)
       },
       //If flutter will fail to show some screen you can show something like 'page nto found'
