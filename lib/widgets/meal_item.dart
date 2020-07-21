@@ -1,22 +1,40 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recipes/models/meal.dart';
+import 'package:recipes/screens/meal_details.dart';
 
 class MealItem extends StatelessWidget {
   final String title;
+  final String id;
   final String imgUrl;
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
 
+
   const MealItem(
-      {@required this.title,
+      {@required this.id,
+      @required this.title,
       @required this.imgUrl,
       @required this.duration,
       @required this.complexity,
-      @required this.affordability});
+      @required this.affordability
+      });
 
-  void selectMeal() {}
+  void selectMeal(BuildContext context) {
+    
+    Navigator.of(context).pushNamed(
+        MealDetailScreen.routName,
+        arguments: id
+        //Result is the data that was received from navigator.pop() method
+    ).then((result){
+      //If I have an id of item I want to remove
+      //call the function and send forward the id
+       if(result != null){
+        // removeItem(result);
+       }
+    });
+  }
 
   String get complexityText {
     switch (complexity) {
@@ -31,28 +49,24 @@ class MealItem extends StatelessWidget {
     }
   }
 
+  String get affordabilityText {
+    switch (affordability) {
+      case Affordability.Affordable:
+        return 'Affordable';
 
-    String get affordabilityText{
+      case Affordability.Pricey:
+        return 'Pricey';
 
-      switch (affordability){
-
-        case Affordability.Affordable:
-          return 'Affordable';
-
-        case Affordability.Pricey:
-          return 'Pricey';
-
-        case Affordability.Luxurious:
-          return 'Luxurious';
-
-      }
+      case Affordability.Luxurious:
+        return 'Luxurious';
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     Radius borderRadius = Radius.circular(16);
     return InkWell(
-        onTap: selectMeal,
+        onTap: () => selectMeal(context),
         child: Card(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
