@@ -4,7 +4,7 @@ import 'package:recipes/dummy_data.dart';
 
 class MealDetailScreen extends StatelessWidget {
   static const routName = '/MealDetailScreen';
-  var mediaQuery;
+  MediaQueryData mediaQuery;
   Function toggleFavorites;
   Function isFavorite;
 
