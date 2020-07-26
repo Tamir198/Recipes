@@ -1,7 +1,4 @@
-This is an app that was created while learning flutter course online.
-
-
-<img src="https://user-images.githubusercontent.com/34707669/88476491-83d7c000-cf41-11ea-8b54-21b7e018af66.gif" height="650">
+## This is an app that was created while learning flutter course online.
 
 
 -----------
