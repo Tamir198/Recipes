@@ -1,6 +1,10 @@
 This is an app that was created while learning flutter course online.
 
 
+<img src="https://user-images.githubusercontent.com/34707669/88476491-83d7c000-cf41-11ea-8b54-21b7e018af66.gif" height="650">
+
+
+-----------
 
 <p float="left">
  <img src="https://user-images.githubusercontent.com/34707669/88476256-b84a7c80-cf3f-11ea-9cfb-f1f22fff00a7.png" height="450">
